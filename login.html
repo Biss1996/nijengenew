@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from Nijenge-Mkopo.vercel.app/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 May 2025 12:58:26 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -185,27 +182,22 @@
         <div class="spinner"></div>
     </div>
 
-    <!--header class="header">
-        <svg viewBox="0 0 200 80" width="200" height="80" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 10 L160 30 L160 60 L100 75 L40 60 L40 30 Z" fill="#2c5282" />
-            <path d="M100 15 L150 32 L150 58 L100 70 L50 58 L50 32 Z" fill="#3182ce" />
-            <path d="M90 30 L110 30 L110 32 L100 32 L100 40 L110 40 C110 50 90 50 90 40 L90 35 M100 48 L100 52" 
-                  stroke="white" fill="none" stroke-width="4" stroke-linecap="round"/>
-            <path d="M85 60 L115 45" stroke="white" stroke-width="3"/>
-            <path d="M110 40 L118 43 L115 50" fill="none" stroke="white" stroke-width="3"/>
-            <text x="100" y="25" font-family="Arial" font-size="8" fill="white" text-anchor="middle" font-weight="bold">SECURELEND</text>
-        </svg>
-    </header-->
-
     <main class="login-panel">
         <h1 class="login-title">Welcome Back</h1>
-        
+
         <form>
             <div class="form-group">
-                <label for="email">Phone Number</label>
-                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    pattern="0[17][0-9]{8}"
+                    placeholder="e.g. 0712345678"
+                    required
+                >
             </div>
-            
+
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
@@ -218,13 +210,13 @@
             <button type="submit" class="login-button">Log In</button>
 
             <div class="signup-link">
-                Create account now
+                <a>Create account now</a>
             </div>
         </form>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Nijenge- Financial Services. NMLS #1234567.</p>
+        <p>&copy; 2026 Nijenge- Financial Services. NMLS #1234567.</p>
     </footer>
 
     <script>
@@ -238,35 +230,35 @@
             loginButton.innerHTML = 'Logging in...';
             loginButton.style.opacity = '0.8';
             loadingOverlay.style.display = 'flex';
-            
+
             setTimeout(() => {
                 loginButton.innerHTML = 'Log In';
                 loginButton.style.opacity = '1';
                 loadingOverlay.style.display = 'none';
-                window.location.href = 'dashboard.html';
+                alert('Login successful! (This is a demo, no real authentication)');
+                // window.location.href = 'dashboard.html';
             }, 2000);
         });
 
         forgotLink.addEventListener('click', function(e) {
             e.preventDefault();
             loadingOverlay.style.display = 'flex';
-            
+
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
-                //window.location.href = 'forgot-password.html';
+                alert('Forgot password feature is not implemented in this demo.');
             }, 2000);
         });
 
         document.querySelector('.signup-link').addEventListener('click', function() {
             loadingOverlay.style.display = 'flex';
-            
+
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
-                window.location.href = 'signup.html';
+                alert('Redirecting to sign up... (This is a demo)');
+                // window.location.href = 'signup.html';
             }, 2000);
         });
     </script>
 </body>
-
-<!-- Mirrored from Nijenge-Mkopo.vercel.app/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 May 2025 12:58:27 GMT -->
 </html>
