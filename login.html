@@ -224,6 +224,7 @@
         const loginButton = document.querySelector('.login-button');
         const loadingOverlay = document.querySelector('.loading-overlay');
         const forgotLink = document.getElementById('forgotLink');
+        const signupLink = document.querySelector('.signup-link');
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -235,8 +236,7 @@
                 loginButton.innerHTML = 'Log In';
                 loginButton.style.opacity = '1';
                 loadingOverlay.style.display = 'none';
-                alert('Login successful! (This is a demo, no real authentication)');
-                // window.location.href = 'dashboard.html';
+                window.location.href = 'dashboard.html';
             }, 2000);
         });
 
@@ -246,17 +246,15 @@
 
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
-                alert('Forgot password feature is not implemented in this demo.');
             }, 2000);
         });
 
-        document.querySelector('.signup-link').addEventListener('click', function() {
+        signupLink.addEventListener('click', function() {
             loadingOverlay.style.display = 'flex';
 
             setTimeout(() => {
                 loadingOverlay.style.display = 'none';
-                alert('Redirecting to sign up... (This is a demo)');
-                // window.location.href = 'signup.html';
+                window.location.href = 'signup.html';
             }, 2000);
         });
     </script>
